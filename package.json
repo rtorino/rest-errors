@@ -1,0 +1,15 @@
+{
+  "name": "platform-errors",
+  "version": "1.0.0",
+  "author": "School Improvement Network",
+  "license": "(c) Copyright School Improvement Network",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "should": "^4.3.0"
+  }
+}
