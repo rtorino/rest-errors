@@ -149,6 +149,14 @@ describe( 'badRequest()', function () {
 		restErrors.badRequest().message.should.eql( 'Bad Request' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.badRequest();
+	} );
+
 } );
 
 describe( 'unauthorized()', function () {
@@ -216,6 +224,14 @@ describe( 'unauthorized()', function () {
 		error.output.headers[ 'WWW-Authenticate' ].should.eql( 'Basic, Example e="1", Another x="3", y="4"' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.unauthorized();
+	} );
+
 } );
 
 describe( 'forbidden()', function () {
@@ -232,6 +248,14 @@ describe( 'forbidden()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.forbidden( 'forbidden' ).message.should.eql( 'forbidden' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.forbidden();
 	} );
 
 } );
@@ -252,6 +276,14 @@ describe( 'notFound()', function () {
 		restErrors.notFound( 'not found' ).message.should.eql( 'not found' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.notFound();
+	} );
+
 } );
 
 describe( 'methodNotAllowed()', function () {
@@ -268,6 +300,14 @@ describe( 'methodNotAllowed()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.methodNotAllowed( 'method not allowed' ).message.should.eql( 'method not allowed' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.methodNotAllowed();
 	} );
 
 } );
@@ -288,6 +328,14 @@ describe( 'notAcceptable()', function () {
 		restErrors.notAcceptable( 'not acceptable' ).message.should.eql( 'not acceptable' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.notAcceptable();
+	} );
+
 } );
 
 describe( 'proxyAuthRequired()', function () {
@@ -304,6 +352,14 @@ describe( 'proxyAuthRequired()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.proxyAuthRequired( 'proxy auth required' ).message.should.eql( 'proxy auth required' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.proxyAuthRequired();
 	} );
 
 } );
@@ -324,6 +380,14 @@ describe( 'clientTimeout()', function () {
 		restErrors.clientTimeout( 'client timeout' ).message.should.eql( 'client timeout' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.clientTimeout();
+	} );
+
 } );
 
 describe( 'conflict()', function () {
@@ -340,6 +404,14 @@ describe( 'conflict()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.conflict( 'conflict' ).message.should.eql( 'conflict' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.conflict();
 	} );
 
 } );
@@ -360,6 +432,14 @@ describe( 'resourceGone()', function () {
 		restErrors.resourceGone( 'resource gone' ).message.should.eql( 'resource gone' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.resourceGone();
+	} );
+
 } );
 
 describe( 'lengthRequired()', function () {
@@ -376,6 +456,14 @@ describe( 'lengthRequired()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.lengthRequired( 'length required' ).message.should.eql( 'length required' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.lengthRequired();
 	} );
 
 } );
@@ -396,6 +484,14 @@ describe( 'preconditionFailed()', function () {
 		restErrors.preconditionFailed( 'precondition failed' ).message.should.eql( 'precondition failed' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.preconditionFailed();
+	} );
+
 } );
 
 describe( 'entityTooLarge()', function () {
@@ -412,6 +508,14 @@ describe( 'entityTooLarge()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.entityTooLarge( 'entity too large' ).message.should.eql( 'entity too large' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.entityTooLarge();
 	} );
 
 } );
@@ -432,6 +536,14 @@ describe( 'uriTooLong()', function () {
 		restErrors.uriTooLong( 'uri too long' ).message.should.eql( 'uri too long' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.uriTooLong();
+	} );
+
 } );
 
 describe( 'unsupportedMediaType()', function () {
@@ -448,6 +560,14 @@ describe( 'unsupportedMediaType()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.unsupportedMediaType( 'unsupported media type' ).message.should.eql( 'unsupported media type' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.unsupportedMediaType();
 	} );
 
 } );
@@ -468,6 +588,14 @@ describe( 'rangeNotSatisfiable()', function () {
 		restErrors.rangeNotSatisfiable( 'range not satisfiable' ).message.should.eql( 'range not satisfiable' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.rangeNotSatisfiable();
+	} );
+
 } );
 
 describe( 'expectationFailed()', function () {
@@ -484,6 +612,14 @@ describe( 'expectationFailed()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.expectationFailed( 'expectation failed' ).message.should.eql( 'expectation failed' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.expectationFailed();
 	} );
 
 } );
@@ -504,6 +640,14 @@ describe( 'badData()', function () {
 		restErrors.badData( 'bad data' ).message.should.eql( 'bad data' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.badData();
+	} );
+
 } );
 
 describe( 'tooManyRequests()', function () {
@@ -520,6 +664,14 @@ describe( 'tooManyRequests()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.tooManyRequests( 'too many requests' ).message.should.eql( 'too many requests' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.tooManyRequests();
 	} );
 
 } );
@@ -556,6 +708,14 @@ describe( 'internal()', function () {
 		}
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.internal();
+	} );
+
 } );
 
 describe( 'badImplementation()', function () {
@@ -577,6 +737,14 @@ describe( 'badImplementation()', function () {
 		restErrors.badImplementation( 'bad implementation' ).message.should.eql( 'bad implementation' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.badImplementation();
+	} );
+
 } );
 
 describe( 'notImplemented()', function () {
@@ -593,6 +761,14 @@ describe( 'notImplemented()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.notImplemented( 'not implemented' ).message.should.eql( 'not implemented' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.notImplemented();
 	} );
 
 } );
@@ -613,6 +789,14 @@ describe( 'badGateway()', function () {
 		restErrors.badGateway( 'bad gateway' ).message.should.eql( 'bad gateway' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.badGateway();
+	} );
+
 } );
 
 describe( 'serverTimeout()', function () {
@@ -631,6 +815,14 @@ describe( 'serverTimeout()', function () {
 		restErrors.serverTimeout( 'server timeout' ).message.should.eql( 'server timeout' );
 	} );
 
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.serverTimeout();
+	} );
+
 } );
 
 describe( 'gatewayTimeout()', function () {
@@ -647,6 +839,14 @@ describe( 'gatewayTimeout()', function () {
 
 	it( 'sets the message with the passed in message', function () {
 		restErrors.gatewayTimeout( 'gateway timeout' ).message.should.eql( 'gateway timeout' );
+	} );
+
+	it( 'emits errorOccur event', function ( done ) {
+		restErrors.on( 'errorOccur', function () {
+			done();
+		} );
+
+		restErrors.gatewayTimeout();
 	} );
 
 } );
