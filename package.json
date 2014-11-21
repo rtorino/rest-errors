@@ -6,7 +6,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "mocha"
   },
   "devDependencies": {
     "mocha": "^2.0.1",

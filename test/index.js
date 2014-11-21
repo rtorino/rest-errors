@@ -94,11 +94,13 @@ describe( 'create()', function () {
 
 	it( 'does not set null message', function () {
 		var error = restErrors.unauthorized( null );
-		( error.output.payload.message === undefined ).should.be.true;
+
+		error.output.payload.message.should.be.empty;
 	} );
 
 	it( 'sets message and data', function () {
 		var error = restErrors.badRequest( 'Missing data', { 'type' : 'user' } );
+
 		error.data.type.should.eql( 'user' );
 		error.output.payload.message.should.eql( 'Missing data' );
 	} );
